@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  onionarchitecture.web:
+    image: ${DOCKER_REGISTRY-}onionarchitectureweb
+    container_name: onionarchitecture_web
+    build:
+      context: .
+      dockerfile: Web/Dockerfile
+    ports:
+      - 5000:80
+      - 5001:443
+    depends_on:
+      - onionarchitecture.db
+
+  onionarchitecture.db:
+    image: postgres:13.2
+    container_name: onionarchitecture_db
+    environment:
+      - POSTGRES_DB=onionarchitecture
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

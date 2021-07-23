@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services.Abstractions\Services.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
